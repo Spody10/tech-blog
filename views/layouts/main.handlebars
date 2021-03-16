@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael's Tech Blog</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>
+                <a href="/">Michael's Tech Blog</a>
+            </h1>
+            <nav>
+                {{#if signedIn}}
+                <a href="/home">Home</a>
+                <a href="/dashboard">Dashboard</a>
+                <button id="sign-out" class="btn-no-style">Sign out</button>
+                {{else}}
+                <a href="/home">Home</a>
+                <a href="/sign-in-prompt">Dashboard</a>
+                <a href="/sign-in-prompt">Login</a>
+                {{/if}}
+            </nav>
+        </header>
+        <main>
+            {{{ body }}}
+        </main>
+        <footer>
+            Thanks for visiting Michael's Tech Blog!
+        </footer>
+    </div>
+
+    {{#if loggedIn}}
+    <script src="/javascript/sign-out.js"></script>
+    {{/if}}
+</body>
+
+</html>
