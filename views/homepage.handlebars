@@ -1,16 +1,23 @@
-<ol class="post-list">
-    {{#each posts as |post|}}
-    <li>
-        <article class="post">
-            <div class="title">
-                <a href="/post/{{id}}">{{title}}</a>
-            </div>
-            <div class="meta">
-                Post created by {{user.username}} on {{format_date created_at}}
-                |
-                <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-            </div>
-        </article>
-    </li>
-    {{/each}}
-</ol>
+<div class="columns">
+    <div class="column is-8 is-offset-2 mt-3 has-background-white">
+        <h2 class="has-text-primary is-size-1 has-text-centered">
+            WELCOME HOME
+        </h2>
+        <ol class="post-list">
+            {{#each posts as |post|}}
+            <li>
+                <article class="post">
+                    <div class="title my-2">
+                        <a href="/post/{{id}}">{{title}}</a>
+                    </div>
+                    <div class="meta">
+                        Post created by {{user.username}} on {{format_date created_at}}
+                        |
+                        <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+                    </div>
+                </article>
+            </li>
+            {{/each}}
+        </ol>
+    </div>
+</div>

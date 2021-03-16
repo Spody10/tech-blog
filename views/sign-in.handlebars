@@ -1,14 +1,19 @@
-<form class="sign-in-form">
-    <div>
-        <label for="user-sign-in">username:</label>
-        <input type="text" id="username-sign-in" />
-    </div>
-    <div>
-        <label for="password-sign-in">password:</label>
-        <input type="password" id="password-sign-in" />
-    </div>
-    <div>
-        <button type="submit">Sign In</button>
+<form class="sign-in-form columns ml-6">
+    <div class="column is-4 is-offset-1">
+        <h3 class="sign-in-title has-text-primary has-text-weight-bold is-size-1">SIGN IN</h3>
+        <div class="my-2">
+            <label for="user-sign-in">username:</label>
+            <div class="control">
+                <input class="input is-link" type="text" id="username-sign-in">
+            </div>
+        </div>
+        <div class="my-2">
+            <label for="password-sign-in">password:</label>
+            <input class="input is-link" type="password" id="password-sign-in" />
+        </div>
+        <div class="control mt-4">
+            <button class="button is-primary" type="submit">Sign In</button>
+        </div>
     </div>
 </form>
 

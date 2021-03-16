@@ -1,32 +1,38 @@
-<article>
-    <a href="/dashboard"> &larr; Back to dashboard</a>
-    <h2>
-        Edit Post
-    </h2>
-    <form class="edit-post-form">
-        <div>
-            <input name="post-title" type="text" value="{{post.title}}" />
-        </div>
-        <div>
-            By you on {{format_date post.created_at}}
-            |
-            <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
-        </div>
-        <button type="submit">Save post</button>
-        <button type="button" class="delete-post-btn">Delete post</button>
-    </form>
-</article>
+<div class="columns">
+    <a class="return" href="/dashboard"> &larr; Back to dashboard</a>
+    <div class="column is-4 is-offset-3">
+        <article>
 
-<form class="comment-form">
-    <div>
-        <textarea name="comment-body"></textarea>
+            <h2 class="has-text-primary is-size-1">
+                EDIT POST
+            </h2>
+            <form class="edit-post-form">
+                <div>
+                    <label for="post-title">Edit Title:</label>
+                    <input class="input" name="post-title" type="text" value="{{post.title}}" />
+                </div>
+                <div>
+                    By you on {{format_date post.created_at}}
+                    |
+                    <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment"
+                        post.comments.length}}</a>
+                </div>
+                <button class="button is-primary my-4" type="submit">Save Post</button>
+                <button type="button" class="delete-post-btn button is-danger my-4">Delete Post</button>
+            </form>
+        </article>
+
+        <form class="comment-form">
+            <div>
+                <textarea name="comment-body" placeholder="Type Comment Here..."></textarea>
+            </div>
+
+            <div>
+                <button class="button is-link my-4" type="submit">Add Comment</button>
+            </div>
+        </form>
     </div>
-
-    <div>
-        <button type="submit">add comment</button>
-    </div>
-</form>
-
+</div>
 {{> comments post.comments}}
 
 <script src="/javascript/edit-post.js"></script>

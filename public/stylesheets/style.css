@@ -1,0 +1,33 @@
+body {
+    background: rgb(141, 187, 151);
+  }
+  
+  #blog-title {
+    font-size: xx-large;
+    font-weight: bold;
+  }
+  
+  ol li {
+    list-style: none;
+    border: 2px solid rgb(78, 241, 78);
+    border-radius: 4px;
+    margin: 10px 30px;
+    padding: 10px 30px;
+    background-color: rgb(141, 187, 151);
+  }
+  
+  .create-btn {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+  
+  .edit-post {
+    width: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
+  }
+  
+  .return {
+    margin: 15px 0px 0px 15px;
+  }

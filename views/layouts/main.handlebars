@@ -5,36 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael's Tech Blog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
-    <div class="wrapper">
-        <header>
-            <h1>
-                <a href="/">Michael's Tech Blog</a>
-            </h1>
-            <nav>
-                {{#if signedIn}}
-                <a href="/home">Home</a>
-                <a href="/dashboard">Dashboard</a>
-                <button id="sign-out" class="btn-no-style">Sign out</button>
-                {{else}}
-                <a href="/home">Home</a>
-                <a href="/sign-in-prompt">Dashboard</a>
-                <a href="/sign-in-prompt">Login</a>
-                {{/if}}
-            </nav>
-        </header>
-        <main>
-            {{{ body }}}
-        </main>
-        <footer>
-            Thanks for visiting Michael's Tech Blog!
-        </footer>
-    </div>
+    <header>
+        <nav class="navbar has-background-link">
+            <div class="navbar-brand">
+                <h1>
+                    <a class="navbar-item has-text-light" href="/" id="blog-title">
+                        Michael's Tech Blog
+                    </a>
+                </h1>
 
-    {{#if loggedIn}}
+                {{#if signedIn}}
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item has-text-light" href="/">Home</a>
+                        <a class="navbar-item has-text-light" href="/dashboard">Dashboard</a>
+                    </div>
+                    <div class="navbar-end">
+                        <button id="sign-out" class="navbar-item button is-danger has-text-light my-2">Log Out</button>
+                    </div>
+                </div>
+                {{else}}
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item has-text-light" href="/">Home</a>
+                        <a class="navbar-item has-text-light" href="/sign-in-prompt">Dashboard</a>
+                    </div>
+
+                    {{#if firstTime}}
+                    <div class="navbar-end">
+                        <a class="navbar-item has-text-light" href="/sign-in-prompt">Sign In</a>
+                    </div>
+                    {{else}}
+                    <div class="navbar-end">
+                        <a class="navbar-item has-text-light" href="/sign-in">Sign In</a>
+                    </div>
+                    {{/if}}
+                    {{/if}}
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        {{{ body }}}
+    </main>
+    <footer class="columns">
+        <div class="column is-4 is-offset-4">
+            <p class="has-text-link">Thanks for visiting Michael's Tech Blog!</p>
+        </div>
+    </footer>
+
+    {{#if signedIn}}
     <script src="/javascript/sign-out.js"></script>
     {{/if}}
 </body>

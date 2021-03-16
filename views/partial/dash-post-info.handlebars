@@ -1,0 +1,19 @@
+<div class="columns">
+    <article class="post column is-8 is-offset-2">
+        <div class="title my-3">
+            <p class="has-text-centered"><a href="post/{{id}}">{{title}}</a></p>
+        </div>
+        {{#if "/single-post"}}
+        <p class="has-text-dark my-2 is-italic has-text-weight-bold has-text-centered">
+            {{contents}}
+        </p>
+        {{/if}}
+        <div class="meta">
+            <p class="has-text-centered">
+                Created by {{user.username}} on {{format_date created_at}}
+                |
+                <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+            </p>
+        </div>
+    </article>
+</div>

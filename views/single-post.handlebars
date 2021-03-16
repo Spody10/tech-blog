@@ -1,19 +1,31 @@
-{{> post-info post }}
-
-{{#if signedIn}}
-<form class="comment-form">
-    <div>
-        <textarea name="comment-body" placeholder="Comment on this post"></textarea>
+<div class="mt-4">
+    {{> post-info post }}
+    {{#if signedIn}}
+    {{#if ownPost}}
+    <div class="edit-post my-4">
+        <p class="has-text-centered">
+            <a href="/dashboard/post/edit/{{post.id}}" class="edit-link has-text-centered">~ Edit Post ~</a>
+        </p>
     </div>
+    {{/if}}
+    <div class="columns">
+        <div class="column is-4 is-offset-4">
+            <form class="comment-form">
+                <div>
+                    <textarea class="textarea" name="comment-body" placeholder="Comment on this post"></textarea>
+                </div>
 
-    <div>
-        <button type="submit">Submit Comment</button>
+                <div class="my-4 is-flex">
+                    <button class="button is-link" type="submit">Submit Comment</button>
+                </div>
+            </form>
+            {{/if}}
+        </div>
     </div>
-</form>
-{{/if}}
-
-{{> comments post.comments}}
-
-{{#if signedIn}}
-<script src="/javascript/comment.js"></script>
-{{/if}}
+    <div>
+        {{> comments post.comments}}
+    </div>
+    {{#if signedIn}}
+    <script src="/javascript/comment.js"></script>
+    {{/if}}
+</div>

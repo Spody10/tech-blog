@@ -1,0 +1,21 @@
+<div class="columns">
+
+    <div class="column is-8 is-offset-2">
+        <h2 class="has-text-primary is-size-1 has-text-centered">
+            YOUR DASHBOARD
+        </h2>
+        <a class="create-btn button is-primary is-light my-4" href="/dashboard/add-post"> Create a New Post</a>
+        {{#if posts.length}}
+        <section>
+            <h2 class="dash-title has-text-primary has-text-weight-bold is-size-1 has-text-centered">Your Posts</h2>
+            <ol>
+                {{#each posts as |post|}}
+                <li>
+                    {{> dash-post-info post}}
+                </li>
+                {{/each}}
+            </ol>
+        </section>
+        {{/if}}
+    </div>
+</div>
