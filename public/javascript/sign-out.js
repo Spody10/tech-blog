@@ -1,27 +1,14 @@
-async function signupFormHandler(event) {
-  event.preventDefault();
+async function signOut() {
+  const response = await fetch("/api/users/sign-out", {
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+  });
 
-  const username = document.querySelector("#username-signup").value.trim();
-  const password = document.querySelector("#password-signup").value.trim();
-
-  if (username && password) {
-    const response = await fetch("/api/users", {
-      method: "post",
-      body: JSON.stringify({
-        username,
-        password,
-      }),
-      headers: { "Content-Type": "application/json" },
-    });
-
-    if (response.ok) {
-      document.location.replace("/dashboard/");
-    } else {
-      alert(response.statusText);
-    }
+  if (response.ok) {
+    document.location.replace("/");
+  } else {
+    alert(response.statusText);
   }
 }
 
-document
-  .querySelector(".signup-form")
-  .addEventListener("submit", signupFormHandler);
+document.querySelector("#sign-out").addEventListener("click", signOut);

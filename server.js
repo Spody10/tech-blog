@@ -26,7 +26,7 @@ app.use(session(sess));
 
 const helpers = require("./utils/helpers");
 
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({ helpers, partialsDir:['./views/partial'] });
 
 app.engine("handlebars", hbs.engine);
 

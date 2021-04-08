@@ -22,6 +22,7 @@ async function signInFormHandler(event) {
   }
 }
 
-document
-  .querySelector(".sign-in-form")
-  .addEventListener("submit", signInFormHandler);
+var el = document.querySelector("#sign-in-form");
+  if(el){
+  el.addEventListener("submit", swapper, false);
+  }
